@@ -1,0 +1,3 @@
+#!/bin/bash
+sude chown vincent .
+sude chgrp staff .
