@@ -1,2 +1,2 @@
 #!/bin/bash
-cut -cl -1 t1 | echo
+cut -cl 1 | echo 
