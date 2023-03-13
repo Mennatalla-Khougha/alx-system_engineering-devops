@@ -1,2 +1,2 @@
 #!/bin/bash
-grep -r root /etc/passed
+grep -ir root /etc/passed
