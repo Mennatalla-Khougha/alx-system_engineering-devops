@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This script is displaying the content of the dirctory
+
+var=$(ls -1 | cut -d '-' -f 2)
+
+for i in $var
+do
+    echo "$i"
+done
