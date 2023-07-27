@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# This script is read and cut from a file
+
+while read -r line
+do
+    print=$(echo "$line" | cut -d ':' -f 1)
+    print2=$(echo "$line" | cut -d ':' -f 3)
+    print3=$(echo "$line" | cut -d ':' -f 6)
+    echo "$print:$print2:$print3"
+done < /etc/passwd
