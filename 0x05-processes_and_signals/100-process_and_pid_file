@@ -8,7 +8,7 @@
 
 echo $$ > /var/run/myscript.pid
 
-end(){
+end() {
     rm /var/run/myscript.pid
     exit 
 }
@@ -16,7 +16,7 @@ end(){
 while true 
 do
     trap 'end' SEGQUIT
-    trap 'echo"I hate the kill command"' SEGTERM
+    trap 'echo"I hate the kill command" && end' SEGTERM
     trap 'echo "Y U no love me?!"' SEGINT
     echo "To infinity and beyond"
     sleep 2
