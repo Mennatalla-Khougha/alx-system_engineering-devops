@@ -15,9 +15,9 @@ end() {
 
 while true 
 do
-    trap 'end' SEGQUIT
-    trap 'echo"I hate the kill command" && end' SEGTERM
-    trap 'echo "Y U no love me?!"' SEGINT
     echo "To infinity and beyond"
     sleep 2
+    trap 'end' SIGQUIT
+    trap 'echo"I hate the kill command" && end' SIGTERM
+    trap 'echo "Y U no love me?!"' SIGINT
 done
