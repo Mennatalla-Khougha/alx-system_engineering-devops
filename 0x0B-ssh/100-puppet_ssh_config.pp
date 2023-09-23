@@ -1,6 +1,6 @@
 # set up your client SSH configuration file
 
-file_line {'~/.ssh/config':
+file_line {'sudo_rule':
 path => "~/.ssh/config",
 line => "
         IdentityFile ~/.ssh/school
