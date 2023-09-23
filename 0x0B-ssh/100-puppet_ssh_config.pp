@@ -1,10 +1,8 @@
 # set up your client SSH configuration file
 
-file {'~/.ssh/config':
-ensure => "present",
+file_line {'~/.ssh/config':
 path => "~/.ssh/config",
-content => "
-Host *
+line => "
         IdentityFile ~/.ssh/school
         PasswordAuthentication no
         ",
