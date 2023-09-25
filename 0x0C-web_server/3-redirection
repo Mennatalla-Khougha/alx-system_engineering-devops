@@ -3,7 +3,7 @@
 apt-get update
 apt-get install -y nginx
 echo "Hello World!" > /var/www/html/index.html
-sed -i '/server_name _;/a \
+sed -i '/listen 80 default_server;/a \
 \
     location /redirect_me {\
     return 301 https://github.com/Mennatalla-Khougha; \
