@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Install nginx web server
+apt-get update
+apt-get install -y nginx
+echo "Hello World!" > /var/www/html/index.html
+sed -i '/server_name _;/a \
+\
+    location /redirect_me {\
+    return 301 https://github.com/Mennatalla-Khougha; \
+    }' /etc/nginx/sites-available/default
+service nginx restart
