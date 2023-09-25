@@ -18,7 +18,7 @@ content => 'Ceci n'est pas une page',
 }
 
 exec {'sed'
-command => sed -i '/server_name _;/a \
+command => "/bin/sed -i '/server_name _;/a \
 \
     location /redirect_me {\
     return 301 https://github.com/Mennatalla-Khougha; \
@@ -28,8 +28,8 @@ command => sed -i '/server_name _;/a \
     location =/404.html { \
     root /var/www/html; \
     internal; \
-    }',
-path => '/etc/nginx/sites-available/default'
+    }' /etc/nginx/sites-available/default",
+path => '/etc/nginx/sites-available/default',
 }
 
 service { 'nginx':
