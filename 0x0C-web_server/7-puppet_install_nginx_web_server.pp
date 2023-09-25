@@ -31,3 +31,9 @@ command => sed -i '/server_name _;/a \
     }',
 path => '/etc/nginx/sites-available/default'
 }
+
+service { 'nginx':
+  ensure    => 'running',
+  enable    => true,
+  subscribe => File['/etc/nginx/sites-available/default'],
+}
