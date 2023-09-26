@@ -1,27 +1,27 @@
 #  configuring your server with Puppet
 
-package {'nginx'
+package {'nginx':
 ensure => 'installed',
 name => 'nginx',
 }
 
-file {'/var/www/html/index.html'
+file {'/var/www/html/index.html':
 path => '/var/www/html/index.html',
 ensure => 'present',
 content => '<h1>Hello, world!</h1>', 
 }
 
-file {'/var/www/html/404.html'
+file {'/var/www/html/404.html':
 path => '/var/www/html/404.html',
 ensure => 'present',
-content => 'Ceci n'est pas une page',
+content => "Ceci n'est pas une page",
 }
 
-file {'/etc/nginx/sites-available/default'
+file {'/etc/nginx/sites-available/default':
 ensure => 'present'
 }
 
-exec {'sed'
+exec {'sed':
 command => "/bin/sed -i '/server_name _;/a \
 \
     location /redirect_me {\
