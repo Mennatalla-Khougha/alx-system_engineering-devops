@@ -22,7 +22,7 @@ ensure => 'present'
 }
 
 exec {'sed':
-command => "/bin/sed -i '/server_name _;/a \
+command => "/bin/sed -i '/listen 80 default_server;/a \
 \
     location /redirect_me {\
     return 301 https://github.com/Mennatalla-Khougha; \
