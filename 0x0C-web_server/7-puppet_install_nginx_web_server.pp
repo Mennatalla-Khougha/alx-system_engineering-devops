@@ -1,8 +1,7 @@
 #  configuring your server with Puppet
 
 package {'nginx':
-ensure => 'installed',
-name => 'nginx',
+ensure => 'latest',
 }
 
 file {'/var/www/html/index.html':
