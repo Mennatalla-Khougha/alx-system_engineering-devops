@@ -5,14 +5,14 @@ ensure => 'latest',
 }
 
 file {'/var/www/html/index.html':
-path => '/var/www/html/index.html',
-ensure => 'present',
-content => 'Hello, world!', 
+ensure  => 'present',
+path    => '/var/www/html/index.html',
+content => 'Hello, world!',
 }
 
 file {'/var/www/html/404.html':
-path => '/var/www/html/404.html',
-ensure => 'present',
+ensure  => 'present',
+path    => '/var/www/html/404.html',
 content => "Ceci n'est pas une page",
 }
 
@@ -36,6 +36,6 @@ command => "/bin/sed -i '/listen 80 default_server;/a \
 
 service { 'nginx':
   ensure    => 'running',
-  enable => 'true',
+  enable    => 'true',
   subscribe => File['/etc/nginx/sites-available/default'],
 }
