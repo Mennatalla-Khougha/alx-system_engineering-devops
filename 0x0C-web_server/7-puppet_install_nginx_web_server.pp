@@ -17,7 +17,8 @@ content => "Ceci n'est pas une page",
 }
 
 file {'/etc/nginx/sites-available/default':
-ensure => 'present'
+ensure => 'present',
+path   => '/etc/nginx/sites-available/default',
 }
 
 exec {'sed':
@@ -36,6 +37,6 @@ command => "/bin/sed -i '/listen 80 default_server;/a \
 
 service { 'nginx':
   ensure    => 'running',
-  enable    => 'true',
+  enable    => true,
   subscribe => File['/etc/nginx/sites-available/default'],
 }
