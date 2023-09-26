@@ -7,7 +7,7 @@ ensure => 'latest',
 file {'/var/www/html/index.html':
 ensure  => 'present',
 path    => '/var/www/html/index.html',
-content => 'Hello, World!',
+content => 'Hello World!',
 }
 
 file {'/var/www/html/404.html':
