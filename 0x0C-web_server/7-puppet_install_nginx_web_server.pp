@@ -38,5 +38,6 @@ path => '/etc/nginx/sites-available/default',
 
 service { 'nginx':
   ensure    => 'running',
-  hasrestart => 'true'
+  enable => 'true',
+  subscribe => File['/etc/nginx/sites-available/default'],
 }
