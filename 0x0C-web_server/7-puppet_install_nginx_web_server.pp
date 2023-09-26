@@ -7,7 +7,7 @@ ensure => 'latest',
 file {'/var/www/html/index.html':
 path => '/var/www/html/index.html',
 ensure => 'present',
-content => '<h1>Hello, world!</h1>', 
+content => 'Hello, world!', 
 }
 
 file {'/var/www/html/404.html':
@@ -32,7 +32,6 @@ command => "/bin/sed -i '/listen 80 default_server;/a \
     root /var/www/html; \
     internal; \
     }' /etc/nginx/sites-available/default",
-path => '/etc/nginx/sites-available/default',
 }
 
 service { 'nginx':
