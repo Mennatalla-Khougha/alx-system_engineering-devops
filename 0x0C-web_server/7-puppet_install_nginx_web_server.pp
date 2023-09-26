@@ -17,6 +17,10 @@ ensure => 'present',
 content => 'Ceci n'est pas une page',
 }
 
+file {'/etc/nginx/sites-available/default'
+ensure => 'present'
+}
+
 exec {'sed'
 command => "/bin/sed -i '/server_name _;/a \
 \
