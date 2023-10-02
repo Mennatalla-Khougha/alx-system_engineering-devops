@@ -1,16 +1,17 @@
 #  configuring your server with Puppet
 
 package {'nginx':
-ensure => 'latest',
+ensure => 'installed',
 }
 
 file_line {'header':
     ensure => 'present',
     path   => '/etc/nginx/sites-available/default',
-    after  => ':80 default_server;',
+    after  => 'listen [::]:80 default_server;',
     line   => 'add_header X-Served-By ${hostname};',
 }
 
-exec {'restart':
-    command => 'sudo service nginx restart',
+service { 'nginx':
+  ensure  => running,
+  require => File_line['header'],
 }
