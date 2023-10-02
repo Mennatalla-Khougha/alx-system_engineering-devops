@@ -4,6 +4,11 @@ package {'nginx':
 ensure => 'installed',
 }
 
+file {'/etc/nginx/sites-available/default':
+ensure => 'present',
+path   => '/etc/nginx/sites-available/default',
+}
+
 file_line {'header':
     ensure => 'present',
     path   => '/etc/nginx/sites-available/default',
