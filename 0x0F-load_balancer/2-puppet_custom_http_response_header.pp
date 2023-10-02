@@ -10,7 +10,7 @@ path   => '/etc/nginx/sites-available/default',
 }
 
 exec {'sed':
-command => "/bin/sed -i '/listen 80 default_server;/a \\
+command => "/bin/sed -i '/listen [::]:80 default_server;/a \\
 \\
     add_header X-Served-By ${hostname};\' /etc/nginx/sites-available/default",
 }
