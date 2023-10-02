@@ -4,7 +4,7 @@ apt-get update
 apt-get install -y nginx
 echo "Hello World!" > /var/www/html/index.html
 echo "Ceci n'est pas une page" > /var/www/html/404.html
-sed -i '/server_name _;/a \
+sed -i "/server_name _;/a \
 \
     location /redirect_me {\
     return 301 https://github.com/Mennatalla-Khougha; \
@@ -15,5 +15,5 @@ sed -i '/server_name _;/a \
     root /var/www/html; \
     internal; \
     } \
-    add_header X-Served-By $(hostname); ' /etc/nginx/sites-available/default
+    add_header X-Served-By $(hostname);" /etc/nginx/sites-available/default
 service nginx restart
