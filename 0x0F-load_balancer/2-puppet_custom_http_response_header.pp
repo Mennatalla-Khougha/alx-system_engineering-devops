@@ -9,11 +9,10 @@ ensure => 'present',
 path   => '/etc/nginx/sites-available/default',
 }
 
-file_line {'header':
-    ensure => 'present',
-    path   => '/etc/nginx/sites-available/default',
-    after  => 'listen [::]:80 default_server;',
-    line   => 'add_header X-Served-By ${hostname};',
+exec {'sed':
+command => "/bin/sed -i '/listen 80 default_server;/a \\
+\\
+    add_header X-Served-By ${hostname};\' /etc/nginx/sites-available/default",
 }
 
 service { 'nginx':
