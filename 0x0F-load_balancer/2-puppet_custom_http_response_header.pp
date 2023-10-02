@@ -1,12 +1,8 @@
 # Install and config the nginx
-exec { 'update':
-  command  => 'sudo apt-get update',
-  provider => shell,
-}
+
 
 package { 'nginx':
   ensure  => installed,
-  require => Exec['update'],
 }
 
 file_line { 'headercustom':
