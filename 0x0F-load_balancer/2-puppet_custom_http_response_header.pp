@@ -1,21 +1,23 @@
-#  configuring your server with Puppet
-
-package {'nginx':
-ensure => 'installed',
+# Install and config the nginx
+exec { 'update':
+  command  => 'sudo apt-get update',
+  provider => shell,
 }
 
-file {'/etc/nginx/sites-available/default':
-ensure => 'present',
-path   => '/etc/nginx/sites-available/default',
+package { 'nginx':
+  ensure  => installed,
+  require => Exec['update'],
 }
 
-exec {'sed':
-command => "/bin/sed -i '/listen [::]:80 default_server;/a \\
-\\
-    add_header X-Served-By ${hostname};\' /etc/nginx/sites-available/default",
+file_line { 'headercustom':
+  ensure  => present,
+  path    => '/etc/nginx/sites-available/default',
+  after   => ':80 default_server;',
+  line    => "add_header X-Served-By ${hostname};",
+  require => Package['nginx'],
 }
 
 service { 'nginx':
   ensure  => running,
-  require => File_line['header'],
+  require => File_line['headercustom'],
 }
