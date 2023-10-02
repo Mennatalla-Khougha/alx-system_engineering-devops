@@ -5,7 +5,8 @@ exec { 'update':
 }
 
 package {'nginx':
-ensure => 'installed',
+ensure  => 'latest',
+require => Exec['update']
 }
 
 file {'/etc/nginx/sites-available/default':
