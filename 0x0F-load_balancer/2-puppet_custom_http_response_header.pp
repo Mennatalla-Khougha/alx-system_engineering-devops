@@ -21,7 +21,6 @@ file_line {'header':
     line   => 'add_header X-Served-By ${hostname};',
 }
 
-service { 'nginx':
-  ensure  => running,
-  require => File_line['header'],
+exec {'restart':
+  command => 'sudo service nginx restart',
 }
