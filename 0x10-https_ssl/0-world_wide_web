@@ -2,9 +2,10 @@
 # script that will display information about subdomains.
 
 
-domain="$1"
-subdomain="$2"
 get_dns_info() {
+    local domain="$1"
+    local subdomain="$2"
+
     if [ -z "$subdomain" ]; then
         subdomains=("www" "lb-01" "web-01" "web-02")
     else
@@ -21,5 +22,7 @@ get_dns_info() {
     done
 }
 
+domain="$1"
+subdomain="$2"
 get_dns_info "$domain" "$subdomain"
 
