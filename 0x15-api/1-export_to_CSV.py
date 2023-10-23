@@ -24,12 +24,8 @@ if __name__ == "__main__":
     file_name = f"{employee_ID}.csv"
     with open(file_name, 'w', newline="") as file:
         file = csv.writer(file, quoting=csv.QUOTE_ALL)
-        file.writerow(["USER_ID",
-                       "USERNAME",
-                       "TASK_COMPLETED_STATUS",
-                       "TASK_TITLE"])
         for task in tasks:
-            file.writerow([str(employee_ID),
-                           str(employee_info['username']),
-                           str(task['completed']),
-                           str(task['title'])])
+            file.writerow([employee_ID,
+                           employee_info['username'],
+                           task['completed'],
+                           task['title']])
