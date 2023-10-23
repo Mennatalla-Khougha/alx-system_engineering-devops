@@ -20,12 +20,8 @@ if __name__ == "__main__":
         tasks = response.json()
 
         employee_data = [{"username": employee_info['username'],
-                         "task": task['title'],
-                         "completed": task['completed']} for task in tasks]
-
-        # for task in tasks:
-        #     employee_data["tasks"].append({"task": task['title'],
-        #                                    "completed": task['completed']})
+                         "task": task['title'], "completed": task['completed']}
+                         for task in tasks]
 
         data[user] = employee_data
     with open("todo_all_employees.json", 'w', ) as file:
