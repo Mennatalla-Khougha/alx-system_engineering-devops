@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-"""This script retrieves and displays a user's TODO list progress from a REST API."""
-from sys import argv
+"""This script retrieves and displays a user's TODO list from a REST API."""
 from requests import get
+from sys import argv
 
 
 if __name__ == "__main__":
@@ -17,10 +17,10 @@ if __name__ == "__main__":
 
     employee_name = f"Employee {employee_info['name']}"
     completed_task = [task for task in tasks if task['completed']]
-    no_completed_task = len(completed_task)
+    no_comp_task = len(completed_task)
     no_tasks = len(tasks)
 
-    print(f"{employee_name} is done with tasks({no_completed_task}/{no_tasks}):")
+    print(f"{employee_name} is done with tasks({no_comp_task}/{no_tasks}):")
 
     for task in completed_task:
-        print(f"{task['title']}")
+        print(f"\t {task['title']}")
