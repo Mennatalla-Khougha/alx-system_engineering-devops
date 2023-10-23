@@ -11,3 +11,7 @@ Python script that retrieves and displays a user's TODO list progress from a RES
 ## Task 3
 
 Python script that retrieves and displays a user's TODO list progress from a REST API and export data in the JSON format.
+
+## Task 4
+
+Python script that retrieves and displays all employee TODO list progress from a REST API and export data in the JSON format.
