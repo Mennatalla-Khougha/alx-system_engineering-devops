@@ -10,7 +10,6 @@ def recurse(subreddit, hot_list=[], after=None):
     if after:
         url += f"&after={after}"
     response = requests.get(url, headers=header, allow_redirects=False)
-    print(response.status_code)
     if response.status_code != 200:
         return None
     data = response.json()
