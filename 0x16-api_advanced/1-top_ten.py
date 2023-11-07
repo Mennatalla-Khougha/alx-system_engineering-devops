@@ -9,7 +9,8 @@ def top_ten(subreddit):
     header = {'User-agent': 'ALX project'}
     response = requests.get(url, headers=header, allow_redirects=False)
     if response.status_code != 200:
-        return 0
+        print('None')
+        return
     data = response.json()
     posts = data['data']['children']
     for post in posts:
