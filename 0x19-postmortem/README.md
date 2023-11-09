@@ -1,3 +1,7 @@
+![image](https://github.com/Mennatalla-Khougha/alx-system_engineering-devops/assets/83873959/aab16a04-0de8-4a39-8016-5f9b430b3333)
+
+
+
 # Outage in the schedule feature
 
 ## Duration
@@ -26,6 +30,9 @@ we sent our team straight to the schedule service crime scene. The mission? Unra
 
 Hold on to your hats: it was a misconfiguration circus! The schedule service, in its excitement to impress, fumbled the latest update without rehearsing the act. Note to self: always practice before the big show.
 
+  ![image](https://github.com/Mennatalla-Khougha/alx-system_engineering-devops/assets/83873959/462c11b5-e38c-49a6-a582-6cb43d347417)
+
+
 ## Resolution
 
 Cue the drumroll! We fixed the misconfiguration blunder by giving our schedule service a crash course in effective communication with the database. After a thorough rehearsal excuses me"testing" we sent it back to the main stage
@@ -40,3 +47,6 @@ To avoid more unplanned vacations, we're implementing stricter deployment valida
 
 - Host a "Configurations Carnival" where potential misconfigurations become the stars of a circus act. We'll catch them in the spotlight, no escape tricks allowed!
 - Teach our CI pipeline to be the detectives by adding automated tests for configuration files. No errors allowed, or they'll face the laughter of shame.
+
+![image](https://github.com/Mennatalla-Khougha/alx-system_engineering-devops/assets/83873959/d8b3c63e-a5e4-4149-bf49-73048e66ecba)
+
