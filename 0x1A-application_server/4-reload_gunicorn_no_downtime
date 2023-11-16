@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Script to reload gunicorn gracefully
 
-for pid in $(ps aux | pgrep 'gunicorn --workers' | grep -v grep | awk '{print $2}'); do
+for pid in $(ps aux | pgrep 'gunicorn' | grep -v grep | awk '{print $2}'); do
     echo "Reloading Gunicorn worker: $pid"
     kill -HUP "$pid"
     sleep 1  # Optional: Add a small delay between worker reloads
