@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 # Script to reload gunicorn gracefully
 
-ps aux | grep gunicorn | awk '{ print $2 }' | xargs kill -HUP
+GUNICORN_PID=$(ps aux | grep gunicorn | grep master | awk '{print \$2}')
+kill -TTOU $GUNICORN_PID
+sleep 5
+kill -TTIN $GUNICORN_PID
