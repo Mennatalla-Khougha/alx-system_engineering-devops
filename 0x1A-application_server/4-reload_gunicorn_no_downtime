@@ -1,16 +1,8 @@
 #!/usr/bin/env bash
 # Script to reload gunicorn gracefully
 
-pids=($(pgrep 'gunicorn --workers' | grep -v grep))
-
-# Check if there are any Gunicorn processes
-if [ ${#pids[@]} -eq 0 ]; then
-    echo "No Gunicorn processes found."
-else
-    # Iterate over process IDs and reload each worker
-    for pid in "${pids[@]}"; do
-        echo "Reloading Gunicorn worker: $pid"
-        kill -HUP "$pid"
-        sleep 1  
-    done
-fi
+for pid in $(ps aux | pgrep 'gunicorn --workers' | grep -v grep | awk '{print $2}'); do
+    echo "Reloading Gunicorn worker: $pid"
+    kill -HUP "$pid"
+    sleep 1  # Optional: Add a small delay between worker reloads
+done
