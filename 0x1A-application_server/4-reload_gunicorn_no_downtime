@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 # Script to reload gunicorn gracefully
 
-for pid in $(ps aux | pgrep 'gunicorn --workers' | pgrep -v grep | awk '{print $2}'); do
-    echo "Reloading Gunicorn worker: $pid"
-    kill -HUP "$pid"
-done
+GUNICORN_PID=$(ps aux | pgrep gunicorn | grep master | awk '{print \$2}')
+
+kill -TTOU "$GUNICORN_PID"
+
+# Wait for a few seconds
+sleep 5
+
+# Increase the number of workers by one
+kill -TTIN "$GUNICORN_PID"
